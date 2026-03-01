@@ -18,12 +18,7 @@ export const block2015Know: MemoryNode[] = [
         imagePosition: "center 50%",
         imageScale: 1,
         hint: "过年回家时候，在她爸爸的车上躲避太阳的她",
-      },
-      {
-        type: "视频",
-        caption: "旅途片段",
-        hint: "可替换为 public/memories/2016-trip.mp4",
-      },
+      }
     ],
   },
 ];

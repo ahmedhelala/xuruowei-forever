@@ -85,28 +85,25 @@ npm run dev
 
 部署后每次 push 都会自动触发更新。
 
-## 真实计数（Vercel Blob，单文件简化版）
+## 真实计数（Neon Postgres）
 
 已实现真实计数接口：
 
 - `GET /api/tribute`：读取蜡烛/鲜花计数
 - `POST /api/tribute`：提交一次点亮（`type: candle | flower`）
 
-实现方式（最简单）：
+实现方式：
 
-1. 计数统一存放在 Blob 单文件：`tributes/counts.json`。
-2. 每次点击时，后端流程为“读取当前数字 → +1 → 回写该文件”。
-3. 接入成本低，便于快速上线。
+1. 接口使用 `.env` 中的 `DATABASE_URL` 连接 Neon PostgreSQL。
+2. 服务端会自动创建 `tribute_counts` 表（若不存在）。
+3. `POST /api/tribute` 使用原子 upsert 自增蜡烛/鲜花计数。
 
 ### Limitation
 
-- 该方案不保证并发一致性。
-- 多人同时点击时，可能出现覆盖写入，导致少量丢计数。
-- 适用于“一致性要求不高”的纪念站场景；若后续需要严格准确，建议切回 Redis 原子计数。
+- 当前仅保存一条全局计数记录（id=1）。
+- 若后续要做按日期、按用户等维度统计，需要扩展表结构。
 
-Vercel Blob 需要环境变量（例如 `BLOB_READ_WRITE_TOKEN`）。
-如果你在本地开发想看到真实计数，可把对应变量写入本地 `.env.local`。
-若未配置该变量，接口会自动降级为进程内临时计数（重启开发服务器后会清零）。
+请确保环境变量中存在 `DATABASE_URL`。
 
 ## 运行环境说明
 

@@ -86,7 +86,7 @@ export default function Home() {
         <h1 className="mt-4 text-4xl font-semibold leading-tight text-stone-800 md:text-5xl">
           徐若薇的美好时光纪念馆
         </h1>
-        <p className="mt-4 max-w-3xl text-base leading-8 text-stone-600 md:text-lg">
+        <p className="mt-4 w-full text-base leading-8 text-stone-600 md:text-lg">
           这是她的丈夫高策（<a href="https://gaocegege.com" className="text-amber-700 hover:underline">gaocegege.com</a>）和她的家人们为纪念徐若薇而创建的空间。徐若薇于 2026 年 2 月 28 日离世。我们希望通过这个时间线纪念她的一生——照片、故事、文字、音乐与她钟爱的一切，都被锚定在具体的时刻。当你向下滚动，就是沿着她生命的轨迹漫步，重新触摸那些有温度的瞬间。
         </p>
       </header>
@@ -109,7 +109,7 @@ export default function Home() {
               )}
 
               {node.media && (
-                <section className="mt-5">
+                <section className="mt-5 rounded-xl bg-amber-50/70 p-4">
                   <h3 className="text-sm font-semibold tracking-wide text-amber-700">光影记忆</h3>
                   <div className="mt-3 grid gap-3 md:grid-cols-2">
                     {node.media.map((item) => (
@@ -147,7 +147,7 @@ export default function Home() {
               )}
 
               {node.favorites && (
-                <section className="mt-5">
+                <section className="mt-5 rounded-xl bg-emerald-50/40 p-4">
                   <h3 className="text-sm font-semibold tracking-wide text-emerald-700">她爱的一切</h3>
                   <ul className="mt-2 space-y-2 text-stone-600">
                     {node.favorites.map((item) => (
@@ -160,7 +160,7 @@ export default function Home() {
               )}
 
               {node.moments && (
-                <section className="mt-5">
+                <section className="mt-5 rounded-xl bg-amber-50/40 p-4">
                   <h3 className="text-sm font-semibold tracking-wide text-amber-700">记忆片段</h3>
                   <ul className="mt-2 space-y-2 text-stone-600">
                     {node.moments.map((moment) => (
@@ -173,7 +173,7 @@ export default function Home() {
               )}
 
               {node.contributions && (
-                <section className="mt-5">
+                <section className="mt-5 rounded-xl bg-cyan-50/40 p-4">
                   <h3 className="text-sm font-semibold tracking-wide text-cyan-700">足迹与贡献</h3>
                   <ul className="mt-2 space-y-2 text-stone-600">
                     {node.contributions.map((item) => (
