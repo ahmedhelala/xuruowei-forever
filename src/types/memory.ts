@@ -3,6 +3,9 @@ export type MemoryMediaType = "照片" | "视频" | "音乐";
 export type MemoryMedia = {
   type: MemoryMediaType;
   caption: string;
+  src?: string;
+  imagePosition?: string;
+  imageScale?: number;
   hint?: string;
 };
 

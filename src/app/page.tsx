@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { timelineBlocks } from "@/content/timeline";
+import { AutoQualityImage } from "@/components/auto-quality-image";
 
 type TributeCounts = {
   candles: number;
@@ -68,6 +69,19 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-amber-50 text-stone-700">
       <header className="mx-auto w-full max-w-5xl px-6 pt-14 pb-10">
+        <div className="relative mb-16 h-8">
+          <div className="absolute -bottom-12 left-6 h-24 w-24 overflow-hidden rounded-full border-4 border-amber-50 bg-white shadow md:h-32 md:w-32">
+            <AutoQualityImage
+              src="/avatar.JPG"
+              alt="徐若薇头像"
+              fill
+              quality={60}
+              sizes="(max-width: 768px) 96px, 128px"
+              className="object-cover"
+            />
+          </div>
+        </div>
+
         <p className="text-sm tracking-[0.24em] text-amber-700">也许世界上也有五千朵和你一模一样的花，但只有你是我独一无二的蔷薇</p>
         <h1 className="mt-4 text-4xl font-semibold leading-tight text-stone-800 md:text-5xl">
           徐若薇的美好时光纪念馆
@@ -102,6 +116,22 @@ export default function Home() {
                       <div key={`${node.year}-${item.type}-${item.caption}`} className="rounded-xl border border-amber-100 bg-amber-50/50 p-4">
                         <p className="text-sm text-amber-700">{item.type}</p>
                         <p className="mt-1 font-medium text-stone-700">{item.caption}</p>
+                        {item.type === "照片" && item.src && (
+                          <div className="relative mt-3 aspect-[4/3] overflow-hidden rounded-lg bg-amber-100/40">
+                            <AutoQualityImage
+                              src={item.src}
+                              alt={item.caption}
+                              fill
+                              quality={62}
+                              sizes="(max-width: 768px) 100vw, 50vw"
+                              className="object-cover"
+                              style={{
+                                objectPosition: item.imagePosition ?? "center center",
+                                transform: `scale(${item.imageScale ?? 1})`,
+                              }}
+                            />
+                          </div>
+                        )}
                         {item.hint && <p className="mt-2 text-xs text-stone-500">{item.hint}</p>}
                       </div>
                     ))}
