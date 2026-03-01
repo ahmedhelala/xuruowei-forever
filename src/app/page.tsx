@@ -184,7 +184,7 @@ export default function Home() {
           徐若薇短暂又灿烂的，一生
         </h1>
         <p className="mt-4 w-full text-base leading-8 text-stone-600 md:text-lg">
-          这是她的丈夫高策（<a href="https://gaocegege.com" className="text-amber-700 hover:underline">gaocegege.com</a>）和她的家人们为纪念徐若薇而创建的空间。徐若薇于 2026 年 2 月 28 日离世。我们希望通过这个时间线纪念她的一生——照片、故事、文字、音乐与她钟爱的一切，都被锚定在具体的时刻。当你向下滚动，就是沿着她生命的轨迹漫步，重新触摸那些有温度的瞬间。
+          这是她的家人朋友们和她的爱人<a href="https://gaocegege.com" className="text-amber-700 hover:underline">高策</a>为纪念她留下的。徐若薇于 2026 年 2 月 28 日离世。我们希望通过这个时间线纪念她的一生——照片、故事、文字、音乐与她钟爱的一切。沿着她生命的轨迹漫步，重新触摸那些有温度的瞬间。
         </p>
       </header>
 
