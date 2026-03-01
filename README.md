@@ -43,9 +43,20 @@ npm run dev
 - `biography`：生平掠影
 - `moments`：记忆片段列表
 - `writing`：纪念文字
+- `dialogues`：对话记录（微信聊天风格）
 - `favorites`：她爱的一切
 - `contributions`：足迹与贡献
 - `media`：照片/视频/音乐条目
+
+`dialogues` 示例：
+
+- `{ speakerId: "xuruowei", content: "你到家了吗？", time: "22:14" }`
+- `{ speakerId: "gaoce", content: "刚到，放心。", time: "22:15" }`
+
+对话角色配置在：`src/content/speaker-map.ts`
+
+- 每个角色有唯一 `id`
+- 每个 `id` 都可以配置 `avatarSrc`（头像）和 `side`（left/right）
 
 如果某条 `media` 是图片，可增加 `src` 字段，例如：
 
@@ -97,6 +108,19 @@ npm run dev
 1. 接口使用 `.env` 中的 `DATABASE_URL` 连接 Neon PostgreSQL。
 2. 服务端会自动创建 `tribute_counts` 表（若不存在）。
 3. `POST /api/tribute` 使用原子 upsert 自增蜡烛/鲜花计数。
+
+## 匿名评论（Neon Postgres）
+
+已实现评论接口：
+
+- `GET /api/comments`：按时间顺序读取评论（从早到晚）
+- `POST /api/comments`：提交评论（仅需 `name` 和 `content`）
+
+特性：
+
+- 无需注册登录
+- 自动记录创建时间 `created_at`
+- 服务端自动创建 `memorial_comments` 表（若不存在）
 
 ### Limitation
 

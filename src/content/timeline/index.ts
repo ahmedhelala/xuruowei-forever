@@ -7,7 +7,7 @@ import { eternalWall } from "./eternal-wall";
 export const timelineBlocks = [
   block1993Prologue,
   block2015Know,
-  block2016Meeting,
-  block2020Home,
+//   block2016Meeting,
+//   block2020Home,
   eternalWall,
 ];

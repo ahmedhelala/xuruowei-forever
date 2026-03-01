@@ -1,5 +1,11 @@
 export type MemoryMediaType = "照片" | "视频" | "音乐";
 
+export type MemoryDialogue = {
+  speakerId: string;
+  content: string;
+  time?: string;
+};
+
 export type MemoryMedia = {
   type: MemoryMediaType;
   caption: string;
@@ -20,4 +26,5 @@ export type MemoryNode = {
   favorites?: string[];
   contributions?: string[];
   media?: MemoryMedia[];
+  dialogues?: MemoryDialogue[];
 };
