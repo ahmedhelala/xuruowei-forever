@@ -122,6 +122,11 @@ npm run dev
 - 自动记录创建时间 `created_at`
 - 服务端自动创建 `memorial_comments` 表（若不存在）
 
+留言文本导出：
+
+- 运行 `npm run dump:comments`
+- 导出文件会写入 `data/comments-dump.txt`
+
 ### Limitation
 
 - 当前仅保存一条全局计数记录（id=1）。
